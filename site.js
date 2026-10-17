@@ -76,7 +76,7 @@
     const posterAttribute = poster ? ` poster="${esc(poster)}"` : '';
 
     return `
-      <article class="video-card" data-category="${esc(category.toLowerCase())}" data-reveal>
+      <article class="video-card" data-featured="${isFeatured ? 'true' : 'false'}" data-category="${esc(category.toLowerCase())}" data-reveal>
         <div class="card-visual" data-palette="${index % 4}">
           ${poster ? `<img class="card-poster" src="${esc(poster)}" alt="" loading="lazy">` : '<div class="card-art-orbit" aria-hidden="true"></div><div class="card-art-center" aria-hidden="true">✳</div>'}
           <video class="card-video" src="${esc(source)}"${posterAttribute} muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
@@ -151,9 +151,12 @@
   }
 
   function attachCardPreviews() {
-    videoGrid.querySelectorAll('.video-card').forEach((card) => {
+    const cards = Array.from(videoGrid.querySelectorAll('.video-card'));
+    const featuredCard = cards.find((card) => card.dataset.featured === 'true');
+
+    cards.forEach((card) => {
       const video = card.querySelector('.card-video');
-      if (!video) return;
+      if (!video || card === featuredCard) return;
       card.addEventListener('pointerenter', () => {
         if (window.matchMedia('(hover: hover)').matches) {
           card.classList.add('is-playing');
@@ -167,6 +170,31 @@
         try { video.currentTime = 0; } catch (_) {}
       });
     });
+
+    // Start the featured Archive.org reel only while its library card is on screen.
+    if (featuredCard) {
+      const video = featuredCard.querySelector('.card-video');
+      if (!video) return;
+      const play = () => {
+        featuredCard.classList.add('is-playing');
+        const attempt = video.play();
+        if (attempt && typeof attempt.catch === 'function') {
+          attempt.catch(() => featuredCard.classList.remove('is-playing'));
+        }
+      };
+      const pause = () => {
+        featuredCard.classList.remove('is-playing');
+        video.pause();
+      };
+      if ('IntersectionObserver' in window) {
+        const previewObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => entry.isIntersecting ? play() : pause());
+        }, { threshold: 0.35 });
+        previewObserver.observe(featuredCard);
+      } else {
+        play();
+      }
+    }
   }
 
   function openPlayer(button) {
