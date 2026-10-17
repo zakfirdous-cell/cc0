@@ -36,7 +36,7 @@
   <main id="main">
     <section class="hero" id="home" aria-labelledby="heroTitle">
       <div class="hero-video-frame" aria-hidden="true">
-        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/archive-still.jpg" tabindex="-1">
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="archive-still.jpg" tabindex="-1">
           <source src="https://archive.org/download/lv_0_20260905132546/lv_0_20260905132546.mp4" type="video/mp4">
         </video>
       </div>
@@ -176,7 +176,7 @@
           <div class="section-index"><span>05</span><i></i><span>NEXT IN LINE</span></div>
           <p class="eyebrow">THE NEXT FRAME IS YOURS</p>
           <h2>BRING THE<br>NEXT <span>FRAME.</span></h2>
-          <p class="contribute-description">This shelf is ready to grow. Send me your videos whenever you’re ready, and I’ll add them here. The PHP side is set up for a private upload console too.</p>
+          <p class="contribute-description">This shelf is ready to grow. Send me your videos whenever you’re ready, and I’ll add them here. On GitHub Pages, the library reads its entries from videos.json and streams each video from its source URL.</p>
           <div class="contribute-actions">
             <a href="#upload-help" class="button button-lime">See how to add clips <span aria-hidden="true">↘</span></a>
             <span class="supported-formats">MP4 · WEBM · MOV<br>UP TO 300 MB / CLIP</span>
@@ -193,11 +193,11 @@
       <div class="contribute-notes">
         <div class="upload-help" id="upload-help" data-reveal>
           <span class="note-number">A /</span>
-          <div><h3>WHEN YOU’RE READY</h3><p>Send clips in this chat and I can place them in the library. For a self-managed PHP install, open <code>/admin.php</code> after setting <code>SITE_ADMIN_PASSWORD</code>; the videos endpoint will add them to the shelf automatically.</p></div>
+          <div><h3>WHEN YOU’RE READY</h3><p>Send clips in this chat and I can place them in the library. For this GitHub Pages version, add each clip’s direct MP4/WebM URL to videos.json; GitHub Pages does not run PHP uploads.</p></div>
         </div>
         <div class="license-note" id="license-note" data-reveal>
           <span class="note-number">B /</span>
-          <div><h3>LICENSE CHECK</h3><p>The supplied Archive.org item is featured as requested, but its metadata does not show an explicit CC0 license. Please verify its reuse terms before redistributing it. New clips can be labeled CC0, public domain, or unverified in the upload console.</p><a href="https://archive.org/details/lv_0_20260905132546" target="_blank" rel="noopener noreferrer">View the original Archive.org item <span aria-hidden="true">↗</span></a></div>
+          <div><h3>LICENSE CHECK</h3><p>The supplied Archive.org item is featured as requested, but its metadata does not show an explicit CC0 license. Please verify its reuse terms before redistributing it. Keep a clear license note with every new clip.</p><a href="https://archive.org/details/lv_0_20260905132546" target="_blank" rel="noopener noreferrer">View the original Archive.org item <span aria-hidden="true">↗</span></a></div>
         </div>
       </div>
     </section>
@@ -213,7 +213,7 @@
   <footer class="site-footer">
     <a class="footer-brand" href="#top">OPEN MOTION<span>COMMONS / 001</span></a>
     <p>MADE FOR THE LOVE OF THE LOOP.</p>
-    <a href="admin.php" class="footer-admin">ADMIN / UPLOAD ↗</a>
+    <a href="#upload-help" class="footer-admin">HOW TO ADD ↗</a>
     <span class="footer-year">EST. 2026 — KEEP IT OPEN</span>
   </footer>
 
@@ -226,6 +226,6 @@
     </div>
   </dialog>
 
-  <script src="assets/site.js" defer></script>
+  <script src="site.js" defer></script>
 </body>
 </html>
