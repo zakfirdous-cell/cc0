@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b0a">
+  <meta name="description" content="Browse every video and upload from the Open Motion creator's Internet Archive account, with titles and license descriptions.">
+  <title>The Archive Library — Open Motion</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090b0a;--panel:#121612;--panel2:#171d17;--text:#f0f1e9;--muted:#a0a69a;--dim:#747c70;--line:rgba(240,241,233,.16);--lime:#d5ff40;--pink:#ff809a;--amber:#ffc66e;--purple:#c3b2ff;--pad:clamp(1.1rem,5vw,5rem);--max:1440px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:radial-gradient(ellipse at 78% 0%,rgba(213,255,64,.06),transparent 32%),var(--bg);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input{font:inherit}::selection{background:var(--lime);color:var(--bg)}
+    .page-head{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:72px;padding:.85rem var(--pad);border-bottom:1px solid var(--line);background:rgba(9,11,10,.84);backdrop-filter:blur(16px)}
+    .brand{display:flex;align-items:center;gap:.72rem;font-size:.78rem;font-weight:900;letter-spacing:.13em}.brand-mark{width:30px;height:30px;color:var(--lime)}.brand-mark svg{width:100%;height:100%}.brand small{display:block;margin-top:.27rem;color:var(--muted);font-size:.48rem;font-weight:700;letter-spacing:.19em}.head-links{display:flex;align-items:center;gap:1.1rem}.head-links a{color:var(--muted);font-size:.62rem;font-weight:800;letter-spacing:.11em}.head-links a:hover{color:var(--lime)}.home-link{display:inline-flex!important;align-items:center;gap:.65rem;padding:.62rem .8rem;border:1px solid rgba(240,241,233,.35);color:var(--text)!important}.home-link span{color:var(--lime)}
+    main{width:min(100%,var(--max));margin:auto;padding:0 var(--pad)}.intro{display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:2rem;padding:clamp(4rem,8vw,7.5rem) 0 2.7rem}.eyebrow{display:flex;align-items:center;gap:.65rem;margin:0 0 1.1rem;color:var(--lime);font-size:.59rem;font-weight:850;letter-spacing:.19em}.dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px rgba(213,255,64,.8)}.intro h1{margin:0;font-size:clamp(4rem,10vw,9rem);font-weight:950;letter-spacing:-.095em;line-height:.82}.intro h1 span{color:var(--lime)}.intro-copy{max-width:435px;justify-self:end;padding-bottom:.4rem}.intro-copy p{margin:0 0 1.4rem;color:#b5bbaf;font-size:.95rem;line-height:1.85}.archive-link{display:inline-flex;align-items:center;gap:.7rem;padding-bottom:.45rem;border-bottom:1px solid var(--lime);color:var(--text);font-size:.66rem;font-weight:820;letter-spacing:.1em}.archive-link span{color:var(--lime)}
+    .source-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--muted);font-size:.55rem;font-weight:800;letter-spacing:.15em}.source-row strong{color:var(--text)}
+    .control-panel{display:grid;grid-template-columns:1fr auto;align-items:end;gap:1.25rem;padding:1.5rem 0 0}.control-label{margin:0 0 .65rem;color:var(--dim);font-size:.5rem;font-weight:850;letter-spacing:.17em}.filters{display:flex;flex-wrap:wrap;gap:.42rem}.filter-btn{padding:.48rem .68rem;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:.55rem;font-weight:800;letter-spacing:.08em;cursor:pointer;transition:background .2s,border-color .2s,color .2s}.filter-btn:hover,.filter-btn.active{border-color:var(--lime);background:var(--lime);color:var(--bg)}.search{width:min(280px,38vw);padding:.64rem .75rem;border:1px solid var(--line);outline:none;background:#0b0e0c;color:var(--text);font-size:.72rem}.search:focus{border-color:var(--lime)}.search::placeholder{color:#71786e}
+    .archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1.6rem 0 4rem}.archive-card{min-width:0;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.008));transition:border-color .25s,transform .3s}.archive-card:hover{border-color:rgba(213,255,64,.55);transform:translateY(-3px)}.card-head{display:grid;grid-template-columns:148px minmax(0,1fr);gap:1rem;padding:.8rem}.thumb{position:relative;display:block;overflow:hidden;aspect-ratio:16/10;background:radial-gradient(circle at 50% 40%,rgba(213,255,64,.18),transparent 48%),#1a2019}.thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .4s}.archive-card:hover .thumb img{transform:scale(1.045)}.thumb-index{position:absolute;top:.45rem;left:.5rem;padding:.2rem .34rem;background:rgba(7,9,8,.78);color:var(--lime);font-size:.48rem;font-weight:850;letter-spacing:.1em}.card-heading{display:flex;min-width:0;flex-direction:column;align-items:flex-start;justify-content:center}.card-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .65rem;margin-bottom:.45rem;color:var(--muted);font-size:.48rem;font-weight:800;letter-spacing:.1em}.kind{color:var(--purple)}.card-heading h2{margin:0 0 .6rem;font-size:clamp(1rem,1.6vw,1.34rem);font-weight:780;letter-spacing:-.04em;line-height:1.15}.card-heading h2 a:hover{color:var(--lime)}.license-badge{display:inline-flex;align-items:center;gap:.42rem;max-width:100%;padding:.33rem .46rem;border:1px solid rgba(255,255,255,.13);color:var(--muted);font-size:.47rem;font-weight:840;letter-spacing:.06em;line-height:1.35}.license-badge::before{width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:var(--muted);content:""}.license-badge.cc0{border-color:rgba(213,255,64,.38);color:var(--lime)}.license-badge.cc0::before{background:var(--lime)}.license-badge.caution{border-color:rgba(255,198,110,.45);color:var(--amber)}.license-badge.caution::before{background:var(--amber)}.license-badge.noncc0{border-color:rgba(255,128,154,.46);color:#ff9eb2}.license-badge.noncc0::before{background:var(--pink)}
+    .card-bottom{padding:0 .8rem .8rem}.desc{border-top:1px solid var(--line);padding-top:.65rem}.desc summary{display:flex;align-items:center;justify-content:space-between;gap:.75rem;color:var(--muted);font-size:.49rem;font-weight:840;letter-spacing:.13em;cursor:pointer;list-style:none}.desc summary::-webkit-details-marker{display:none}.desc summary::after{color:var(--lime);font-size:.8rem;content:"+"}.desc[open] summary::after{content:"−"}.desc-text{max-height:420px;overflow:auto;margin:.65rem 0 0;padding:.75rem;border-left:1px solid var(--lime);background:rgba(255,255,255,.025);color:#c2c7bb;font-size:.68rem;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere}.desc-text:empty::before{color:var(--dim);font-style:italic;content:"No description was supplied for this item."}.license-source{display:inline-block;margin:.55rem 0 0;color:var(--lime);font-size:.56rem;font-weight:760}.card-actions{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.75rem}.item-link{display:inline-flex;align-items:center;gap:.55rem;color:var(--lime);font-size:.55rem;font-weight:850;letter-spacing:.12em}.item-link:hover{color:#e9ffab}.action-note{color:var(--dim);font-size:.48rem;font-weight:750;letter-spacing:.1em}
+    .notice{display:grid;grid-template-columns:30px 1fr;gap:.85rem;margin:0 0 4rem;padding:1.1rem;border:1px solid rgba(255,198,110,.28);background:rgba(255,198,110,.045)}.notice-icon{color:var(--amber);font-size:1rem}.notice h2{margin:0 0 .35rem;color:var(--amber);font-size:.59rem;font-weight:900;letter-spacing:.15em}.notice p{margin:0;color:var(--muted);font-size:.68rem;line-height:1.7}.page-footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0 2.2rem;border-top:1px solid var(--line);color:var(--dim);font-size:.52rem;font-weight:780;letter-spacing:.13em}.page-footer a{color:var(--lime)}.loading,.error{grid-column:1/-1;display:flex;min-height:180px;align-items:center;justify-content:center;gap:.8rem;border:1px solid var(--line);color:var(--muted);font-size:.62rem;font-weight:800;letter-spacing:.15em}.spinner{width:17px;height:17px;border:1px solid var(--dim);border-top-color:var(--lime);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.empty{grid-column:1/-1;padding:2rem;border:1px dashed var(--line);color:var(--muted);text-align:center}
+    @media(max-width:780px){.intro{grid-template-columns:1fr;gap:1.5rem}.intro-copy{justify-self:start}.control-panel{grid-template-columns:1fr}.search{width:100%}.archive-grid{grid-template-columns:1fr}.intro h1{font-size:clamp(4rem,15vw,7rem)}}
+    @media(max-width:480px){.page-head{min-height:64px}.brand{font-size:.67rem}.head-links{gap:.4rem}.head-links>a:first-child{display:none}.home-link{padding:.53rem .62rem;font-size:.52rem!important}.intro{padding-top:3.5rem}.intro h1{font-size:clamp(3.3rem,16vw,5rem)}.card-head{grid-template-columns:112px minmax(0,1fr);gap:.75rem;padding:.65rem}.card-heading h2{font-size:1rem}.card-bottom{padding:0 .65rem .65rem}.archive-grid{gap:.65rem}.source-row{font-size:.47rem}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="page-head">
+    <a class="brand" href="index.html" aria-label="Open Motion home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 2.7 37.3 12.7v14.6L20 37.3 2.7 27.3V12.7L20 2.7Z" stroke="currentColor" stroke-width="1.6"/><path d="m15.7 12.4 13 7.6-13 7.6V12.4Z" fill="currentColor"/></svg></span>
+      <span>OPEN MOTION<small>ARCHIVE INDEX / 001</small></span>
+    </a>
+    <nav class="head-links" aria-label="Library navigation">
+      <a href="https://archive.org/details/@zak_firdous/uploads" target="_blank" rel="noopener noreferrer">SOURCE ARCHIVE ↗</a>
+      <a class="home-link" href="index.html"><span>←</span> BACK HOME</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow"><i class="dot"></i> ARCHIVE.ORG / ZAK_FIRDOUS / UPLOADS</p>
+        <h1>ALL THE<br><span>MOTION.</span></h1>
+      </div>
+      <div class="intro-copy">
+        <p>A compact index of every upload on the creator’s Archive.org page. Thumbnails and titles link to the original item; descriptions and license notes stay close to each work.</p>
+        <a class="archive-link" href="https://archive.org/details/@zak_firdous/uploads" target="_blank" rel="noopener noreferrer">OPEN THE ORIGINAL UPLOADS PAGE <span>↗</span></a>
+      </div>
+    </section>
+
+    <div class="source-row"><span id="itemCount">CHECKING THE ARCHIVE…</span><strong>MEDIA STAYS ON INTERNET ARCHIVE</strong></div>
+
+    <section class="control-panel" aria-label="Filter archive uploads">
+      <div><p class="control-label">LICENSE VIEW</p><div class="filters" id="filters" role="group" aria-label="Filter by license status"></div></div>
+      <div><label class="control-label" for="searchBox">FIND AN ITEM</label><input class="search" id="searchBox" type="search" placeholder="Search titles or descriptions…"></div>
+    </section>
+
+    <section class="archive-grid" id="archiveGrid" aria-live="polite" aria-busy="true"><div class="loading"><i class="spinner" aria-hidden="true"></i> FETCHING ARCHIVE UPLOADS…</div></section>
+
+    <aside class="notice"><span class="notice-icon" aria-hidden="true">ⓘ</span><div><h2>LICENSE NOTES ARE ITEM-SPECIFIC</h2><p>A CC0 badge is shown only when the item lists the CC0 deed. If the description names exclusions—such as music or backgrounds—the card is marked for review and its full description is expanded. “No CC0 license listed” means unverified, not automatically public domain.</p></div></aside>
+
+    <footer class="page-footer"><span>OPEN MOTION / SOURCE-LINKED, NOT REHOSTED</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">BACK TO TOP ↑</a></footer>
+  </main>
+  <script src="library.js" defer></script>
+</body>
+</html>
