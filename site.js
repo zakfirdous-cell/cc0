@@ -135,7 +135,7 @@
   }
 
   async function getLibraryData() {
-    const endpoints = ['./api/videos.php', './data/videos.json'];
+    const endpoints = ['./videos.json'];
     for (const endpoint of endpoints) {
       try {
         const response = await fetch(endpoint, { headers: { Accept: 'application/json' }, cache: 'no-store' });
@@ -144,7 +144,7 @@
         const videos = Array.isArray(data) ? data : data.videos;
         if (Array.isArray(videos)) return videos;
       } catch (_) {
-        // A static preview can fall through to the bundled JSON fixture.
+        // GitHub Pages serves the static videos.json catalog.
       }
     }
     return [];
