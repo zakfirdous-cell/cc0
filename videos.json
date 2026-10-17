@@ -1,0 +1,17 @@
+{
+  "videos": [
+    {
+      "id": "archive-feature",
+      "title": "Animation by me.",
+      "source": "https://archive.org/download/lv_0_20260905132546/lv_0_20260905132546.mp4",
+      "permalink": "https://archive.org/details/lv_0_20260905132546",
+      "poster": "assets/archive-still.jpg",
+      "category": "FEATURED",
+      "origin": "INTERNET ARCHIVE",
+      "duration": "0:51",
+      "resolution": "960 × 540",
+      "license": "VERIFY LICENSE",
+      "featured": true
+    }
+  ]
+}
